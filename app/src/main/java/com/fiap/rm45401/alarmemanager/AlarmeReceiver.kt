@@ -15,8 +15,9 @@ class AlarmeReceiver : BroadcastReceiver() {
     private var mp : MediaPlayer? = null
 
     override fun onReceive(context: Context?, intent: Intent?) {
-        mp = MediaPlayer.create(context, R.raw.bazinga)
-        mp!!.start()
-        Toast.makeText(context, "Alarme...", Toast.LENGTH_LONG).show()
+
+        val i = Intent(context, MeuServico::class.java)
+        i.putExtra("parametro1", "oi")
+        context?.startService(i)
     }
 }
